@@ -79,11 +79,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>
@@ -111,12 +106,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
-        </dependency>
-
-        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
@@ -126,12 +115,6 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
         </dependency>
         <!--json-->
         <dependency>
@@ -161,11 +144,6 @@
         </dependency>
 
         <!-- spring session -->
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-            <version>1.0.2.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
@@ -271,8 +249,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <version>RELEASE</version>
         </dependency>
     </dependencies>
     <build>
@@ -281,8 +258,9 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>**/*.properties</include>
-                    <include>**/dao/xml/*.xml</include>
+                    <include>*.properties</include>
+                    <include>*.xml</include>
+                    <include>**/mapper/*.xml</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
