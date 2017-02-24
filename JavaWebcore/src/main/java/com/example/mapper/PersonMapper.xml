@@ -1,277 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dao.PersonMapper">
-    <resultMap id="BaseResultMap" type="com.example.model.Person">
-        <constructor>
-            <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.PersonMapper" >
+  <resultMap id="BaseResultMap" type="com.example.model.Person" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="age" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
     id, age, name
   </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from tb_person
-        where id = #{id,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_person
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tb_person
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-    <insert id="insert" parameterType="com.example.model.Person">
+  <insert id="insert" parameterType="com.example.model.Person" >
     insert into tb_person (id, age, name
       )
     values (#{id,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertSelective" parameterType="com.example.model.Person">
-        insert into tb_person
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="age != null">
-                age,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=VARCHAR},
-            </if>
-            <if test="age != null">
-                #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.example.model.Person">
-        update tb_person
-        <set>
-            <if test="age != null">
-                age = #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.example.model.Person">
+  <insert id="insertSelective" parameterType="com.example.model.Person" >
+    insert into tb_person
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.Person" >
     update tb_person
-    set age = #{age,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR}
+    <set >
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-    <resultMap id="BaseResultMap" type="com.example.model.Person">
-        <constructor>
-            <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
-    id, age, name
-  </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from tb_person
-        where id = #{id,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from tb_person
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-    <insert id="insert" parameterType="com.example.model.Person">
-    insert into tb_person (id, age, name
-      )
-    values (#{id,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
-      )
-  </insert>
-    <insert id="insertSelective" parameterType="com.example.model.Person">
-        insert into tb_person
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="age != null">
-                age,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=VARCHAR},
-            </if>
-            <if test="age != null">
-                #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.example.model.Person">
-        update tb_person
-        <set>
-            <if test="age != null">
-                age = #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.example.model.Person">
-    update tb_person
-    set age = #{age,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-    <resultMap id="BaseResultMap" type="com.example.model.Person">
-        <constructor>
-            <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
-    id, age, name
-  </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from tb_person
-        where id = #{id,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from tb_person
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-    <insert id="insert" parameterType="com.example.model.Person">
-    insert into tb_person (id, age, name
-      )
-    values (#{id,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
-      )
-  </insert>
-    <insert id="insertSelective" parameterType="com.example.model.Person">
-        insert into tb_person
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="age != null">
-                age,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=VARCHAR},
-            </if>
-            <if test="age != null">
-                #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.example.model.Person">
-        update tb_person
-        <set>
-            <if test="age != null">
-                age = #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.example.model.Person">
-    update tb_person
-    set age = #{age,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-    <resultMap id="BaseResultMap" type="com.example.model.Person">
-        <constructor>
-            <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
-    id, age, name
-  </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from tb_person
-        where id = #{id,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from tb_person
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-    <insert id="insert" parameterType="com.example.model.Person">
-    insert into tb_person (id, age, name
-      )
-    values (#{id,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
-      )
-  </insert>
-    <insert id="insertSelective" parameterType="com.example.model.Person">
-        insert into tb_person
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="age != null">
-                age,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=VARCHAR},
-            </if>
-            <if test="age != null">
-                #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.example.model.Person">
-        update tb_person
-        <set>
-            <if test="age != null">
-                age = #{age,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.example.model.Person">
+  <update id="updateByPrimaryKey" parameterType="com.example.model.Person" >
     update tb_person
     set age = #{age,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR}

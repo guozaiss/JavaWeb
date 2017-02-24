@@ -23,6 +23,6 @@ public class TestA {
 
     @Test
     public void test1() {
-        Person user = userService.getUserById("id_01");
+        Person user = userService.getUserById("iiiddd");
     }
 }

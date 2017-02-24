@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
     <!--导入属性配置-->
-    <!--<properties resource="jdbc.properties"/>-->
+    <properties resource="classpath:jdbc.properties"/>
 
     <!--指定特定数据库的jdbc驱动jar包的位置-->
     <classPathEntry location="C:\\Users\\Admin\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.30\\mysql-connector-java-5.1.30.jar"/>
@@ -21,7 +21,7 @@
         <!--jdbc的数据库连接 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://192.168.4.16:3306/meizhi"
+                connectionURL="jdbc:mysql:///meizhi"
                 userId="guo"
                 password="123456">
         </jdbcConnection>
