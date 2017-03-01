@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
- * Created by Admin on 2017/2/17.
+ * Created by Guo on 2017/2/17.
  */
 @Service("personService")
 public class PersonServiceImpl implements PersonService {

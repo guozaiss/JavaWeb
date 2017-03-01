@@ -1,7 +1,10 @@
 package com.example.controller;
 
 import com.example.service.PersonService;
+import com.example.service.SinaGoldNewService;
+import com.example.utils.gson.GsonBuilderUtil;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +24,12 @@ import java.io.PrintWriter;
 @RequestMapping(value = "/meizhi")
 public class MeizhiServlet extends HttpServlet {
     @Autowired
-    private PersonService personService;
+    private SinaGoldNewService sinaGoldNewService;
 
     @RequestMapping(method = RequestMethod.GET)
     public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        writer.append(new Gson().toJson(personService.getUserById("id_01")));
+        writer.append(GsonBuilderUtil.create().toJson(sinaGoldNewService.getNewById("sina_gold_new_id_000001")));
     }
 
     @RequestMapping(value = "/hehe", method = RequestMethod.GET)
