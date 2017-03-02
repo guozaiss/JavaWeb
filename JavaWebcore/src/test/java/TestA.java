@@ -2,30 +2,28 @@ import com.example.model.Person;
 import com.example.service.PersonService;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.annotation.Resource;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by Admin on 2017/2/17.
  */
 public class TestA {
-    private  Logger logger;
+    private final static Logger logger = LoggerFactory.getLogger(TestA.class);
     @Resource
     private PersonService personService = null;
 
     @Before
     public void before() {
-        logger = Logger.getLogger(TestA.class.toString());
-        ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");
-        personService = (PersonService) ac.getBean("personService");
+        personService = (PersonService) new ClassPathXmlApplicationContext("spring-mybatis.xml").getBean("personService");
     }
 
     @Test
     public void test1() {
         Person user = personService.getUserById("iiiddd");
-        logger.log(Level.ALL,user.getName());
+        logger.info(user.getName());
     }
 }

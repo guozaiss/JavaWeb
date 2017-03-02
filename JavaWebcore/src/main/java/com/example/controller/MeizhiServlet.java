@@ -1,10 +1,7 @@
 package com.example.controller;
 
-import com.example.service.PersonService;
 import com.example.service.SinaGoldNewService;
 import com.example.utils.gson.GsonBuilderUtil;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +20,7 @@ import java.io.PrintWriter;
 @Controller
 @RequestMapping(value = "/meizhi")
 public class MeizhiServlet extends HttpServlet {
+
     @Autowired
     private SinaGoldNewService sinaGoldNewService;
 

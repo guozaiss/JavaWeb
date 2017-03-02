@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 @Lazy(false)
 public class ReptileTask {
-    public final static Logger logger = LoggerFactory.getLogger(ReptileTask.class);
+    private final static Logger logger = LoggerFactory.getLogger(ReptileTask.class);
 
     @Autowired
     private SinaGoldNewService sinaGoldNewService;
