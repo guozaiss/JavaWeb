@@ -3,21 +3,21 @@ package com.example.model;
 import java.util.Date;
 
 public class SinaGoldNew {
-    private String newId;
-
-    private String title;
+    private Integer newId;
 
     private String publishTime;
 
     private Date createTime;
 
+    private String title;
+
     private String url;
 
-    public SinaGoldNew(String newId, String title, String publishTime, Date createTime, String url) {
+    public SinaGoldNew(Integer newId, String publishTime, Date createTime, String title, String url) {
         this.newId = newId;
-        this.title = title;
         this.publishTime = publishTime;
         this.createTime = createTime;
+        this.title = title;
         this.url = url;
     }
 
@@ -25,20 +25,12 @@ public class SinaGoldNew {
         super();
     }
 
-    public String getNewId() {
+    public Integer getNewId() {
         return newId;
     }
 
-    public void setNewId(String newId) {
-        this.newId = newId == null ? null : newId.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+    public void setNewId(Integer newId) {
+        this.newId = newId;
     }
 
     public String getPublishTime() {
@@ -55,6 +47,14 @@ public class SinaGoldNew {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getUrl() {

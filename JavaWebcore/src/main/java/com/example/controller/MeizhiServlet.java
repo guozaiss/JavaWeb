@@ -27,7 +27,7 @@ public class MeizhiServlet extends HttpServlet {
     @RequestMapping(method = RequestMethod.GET)
     public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        writer.append(GsonBuilderUtil.create().toJson(sinaGoldNewService.getNewById("sina_gold_new_id_000001")));
+        writer.append(GsonBuilderUtil.create().toJson(sinaGoldNewService.getNewById(1)));
     }
 
     @RequestMapping(value = "/hehe", method = RequestMethod.GET)

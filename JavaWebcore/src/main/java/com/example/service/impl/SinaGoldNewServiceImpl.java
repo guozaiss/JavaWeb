@@ -17,7 +17,7 @@ public class SinaGoldNewServiceImpl implements SinaGoldNewService {
     SinaGoldNewMapper sinaGoldNewMapper;
 
     @Override
-    public SinaGoldNew getNewById(String newId) {
+    public SinaGoldNew getNewById(int newId) {
         return sinaGoldNewMapper.selectByPrimaryKey(newId);
     }
 

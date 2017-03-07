@@ -81,6 +81,7 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
+            <property name="selectAllOrderByClause" value="new_id desc"/>
         </table>
     </context>
 </generatorConfiguration>

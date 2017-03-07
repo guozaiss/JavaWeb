@@ -15,6 +15,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rx.Observable;
+import rx.Scheduler;
+import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -75,9 +80,39 @@ public class SinaGoldReptile {
      * 使用jsoup解析网页信息
      */
     private static List<SinaGoldNew> analyzeHTMLByString(String html) {
-        List<SinaGoldNew> sinaGoldNews = new ArrayList<>();
+        final List<SinaGoldNew> sinaGoldNews = new ArrayList<>();
         Document document = Jsoup.parse(html);
         Elements list_009 = document.getElementsByClass("list_009");
+//        Observable.from(list_009)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(Schedulers.computation())
+//                .flatMap(new Func1<Element, Observable<Element>>() {
+//                    @Override
+//                    public Observable<Element> call(Element element) {
+//                        return Observable.from(element.children());
+//                    }
+//                }).map(new Func1<Element, SinaGoldNew>() {
+//            @Override
+//            public SinaGoldNew call(Element element) {
+//                Element a = element.select("a").first();
+//                String link = a.attr("abs:href");
+//                String title = a.html();
+//                String time = element.select("span").html();
+//                try {
+//                    title = new String(title.getBytes("ISO8859-1"), "utf-8");
+//                    time = new String(time.getBytes("ISO8859-1"), "utf-8");
+//                    time = time.substring(time.indexOf("(") + 1, time.indexOf(")"));
+//                } catch (UnsupportedEncodingException e1) {
+//                    e1.printStackTrace();
+//                }
+//                return new SinaGoldNew(0, time, new Date(), title, link);
+//            }
+//        }).subscribe(new Action1<SinaGoldNew>() {
+//            @Override
+//            public void call(SinaGoldNew sinaGoldNew) {
+//                sinaGoldNews.add(sinaGoldNew);
+//            }
+//        });
         for (Element e : list_009) {
             Elements childrens = e.children();
             for (Element children : childrens) {
@@ -86,12 +121,13 @@ public class SinaGoldReptile {
                 String title = a.html();
                 String time = children.select("span").html();
                 try {
-                    title = new String(title.getBytes("ISO8859-1"), "gb2312");
-                    time = new String(time.getBytes("ISO8859-1"), "gb2312");
+                    title = new String(title.getBytes("ISO8859-1"), "utf-8");
+                    time = new String(time.getBytes("ISO8859-1"), "utf-8");
+                    time = time.substring(time.indexOf("(") + 1, time.indexOf(")"));
                 } catch (UnsupportedEncodingException e1) {
                     e1.printStackTrace();
                 }
-                sinaGoldNews.add(new SinaGoldNew(title.hashCode() + time.hashCode() + "", title, time, new Date(), link));
+                sinaGoldNews.add(new SinaGoldNew(0, title, new Date(), time, link));
             }
         }
         return sinaGoldNews;

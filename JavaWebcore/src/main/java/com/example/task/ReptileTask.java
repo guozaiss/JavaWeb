@@ -29,14 +29,14 @@ public class ReptileTask {
     @Scheduled(cron = "0 0/1 * * * *")
     public void virtualThumbUp() {
         logger.info("<<-----------------------财经开始读取并入库----------------->>");
-        try {
-            List<SinaGoldNew> sinaGoldNews = SinaGoldReptile.getSinaGoldNews();
-            for (SinaGoldNew s : sinaGoldNews) {
-                int insert = sinaGoldNewService.insert(s);
-            }
-        } catch (Exception e) {
-            logger.error("virtualThumbUp() error: ", e);
-        }
+//        try {
+//            List<SinaGoldNew> sinaGoldNews = SinaGoldReptile.getSinaGoldNews();
+//            for (SinaGoldNew s : sinaGoldNews) {
+//                int insert = sinaGoldNewService.insert(s);
+//            }
+//        } catch (Exception e) {
+//            logger.error("virtualThumbUp() error: ", e);
+//        }
         logger.info("<<-----------------------财经新闻读取并入库完毕----------------->>");
 
     }

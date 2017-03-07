@@ -3,13 +3,13 @@ package com.example.dao;
 import com.example.model.SinaGoldNew;
 
 public interface SinaGoldNewMapper {
-    int deleteByPrimaryKey(String newId);
+    int deleteByPrimaryKey(Integer newId);
 
     int insert(SinaGoldNew record);
 
     int insertSelective(SinaGoldNew record);
 
-    SinaGoldNew selectByPrimaryKey(String newId);
+    SinaGoldNew selectByPrimaryKey(Integer newId);
 
     int updateByPrimaryKeySelective(SinaGoldNew record);
 
