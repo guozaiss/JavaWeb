@@ -1,7 +1,6 @@
 package com.example.reptile;
 
 import com.example.model.SinaGoldNew;
-import com.example.task.ReptileTask;
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,13 +12,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import rx.Observable;
-import rx.Scheduler;
-import rx.functions.Action1;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -31,7 +23,6 @@ import java.util.List;
  * Created by Guo on 2017/3/1.
  */
 public class SinaGoldReptile {
-    private final static Logger logger = LoggerFactory.getLogger(ReptileTask.class);
 
     /**
      * 单例工具类

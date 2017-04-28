@@ -71,7 +71,7 @@ public abstract class LogbackConfigurer {
 	 * Set the specified system property to the current working directory.
 	 * <p>
 	 * This can be used e.g. for test environments, for applications that
-	 * leverage logbackWebConfigurer's "webAppRootKey" support in a web
+	 * leverage logbackWebConfigurer'sendEmails "webAppRootKey" support in a web
 	 * environment.
 	 * 
 	 * @param key

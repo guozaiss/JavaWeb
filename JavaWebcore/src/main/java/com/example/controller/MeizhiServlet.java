@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.Student;
 import com.example.service.SinaGoldNewService;
 import com.example.utils.gson.GsonBuilderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,14 @@ public class MeizhiServlet extends HttpServlet {
 
     @Autowired
     private SinaGoldNewService sinaGoldNewService;
-
+    @Autowired
+    private Student student;
     @RequestMapping(method = RequestMethod.GET)
     public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        writer.append(GsonBuilderUtil.create().toJson(sinaGoldNewService.getNewById(1)));
+        writer.append(GsonBuilderUtil.create().toJson(sinaGoldNewService.getNewById(130)));
+        student.setName("dadadadd");
+        writer.append(student.getName());
     }
 
     @RequestMapping(value = "/hehe", method = RequestMethod.GET)
