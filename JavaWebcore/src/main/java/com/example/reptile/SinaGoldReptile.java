@@ -12,6 +12,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -22,13 +23,8 @@ import java.util.List;
 /**
  * Created by Guo on 2017/3/1.
  */
+@Component
 public class SinaGoldReptile {
-
-    /**
-     * 单例工具类
-     */
-    private SinaGoldReptile() {
-    }
 
     /**
      * 获取万年历信息

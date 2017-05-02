@@ -19,4 +19,17 @@ public class LogUtils {
             e.printStackTrace();
         }
     }
+
+    public static void error(String msg) {
+        Thread thread = Thread.currentThread();
+        StackTraceElement[] stackTrace = thread.getStackTrace();
+        try {
+            StackTraceElement stackTraceElement = stackTrace[2];
+            Logger logger = LoggerFactory.getLogger(Class.forName(stackTraceElement.getClassName()));
+            logger.error("methodName: " + stackTraceElement.getMethodName() + "  "
+                    + stackTraceElement.getLineNumber() + "行:\n\r           " + msg);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

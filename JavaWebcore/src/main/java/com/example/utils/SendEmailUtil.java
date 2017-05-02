@@ -20,7 +20,8 @@ public class SendEmailUtil {
     public void sendEmails(String emailS) throws MessagingException {
         String subject = "通知";
         String content = "益万家Android 内测版本 应用更新了，内测地址：<br/>" +
-                "<a href=\"https://fir.im/p4l9\">https://fir.im/p4l9</a><br/>" +
+                "Android :<a href=\"https://fir.im/p4l9\">https://fir.im/p4l9</a><br/>" +
+//                "IOS:<a href=\"https://fir.im/nucg\">https://fir.im/nucg</a><br/>" +
                 "密码：readyidu";
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.qq.com");
