@@ -16,7 +16,7 @@ public class ExcelUtilsTest {
         SendEmailUtil sendEmailUtil = FactoryUtils.getInstance().getBean("sendEmailUtil", SendEmailUtil.class);
         List<String> strings = excelUtils.readEmailAddress();
         try {
-            sendEmailUtil.sendEmails(strings.toString().replace("[", "").replace("]", "").replace("\"", ""));
+            sendEmailUtil.sendEmails(strings.toString().replace("[", "").replace("]", "").replace("\"", "").replace(" ", ""));
         } catch (MessagingException e) {
             e.printStackTrace();
         }
