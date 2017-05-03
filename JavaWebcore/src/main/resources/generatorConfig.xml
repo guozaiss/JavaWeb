@@ -68,9 +68,10 @@
 
 
         <table tableName="tb_meizhi" domainObjectName="MeiZhi"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="UNSIGNED_BIGINT_FIELD" javaType="java.lang.Object" jdbcType="LONG" />
         </table>
         <table tableName="tb_person" domainObjectName="Person"
                enableCountByExample="false" enableUpdateByExample="false"

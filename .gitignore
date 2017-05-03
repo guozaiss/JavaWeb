@@ -10,3 +10,4 @@ buildNumber.properties
 *.iml
 .idea
 JavaWebcore/logs/
+JavaWebcore/src/main/java/com/example/model/MeiZhiExample.java
